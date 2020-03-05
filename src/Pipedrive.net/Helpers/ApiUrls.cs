@@ -25,6 +25,8 @@ namespace Pipedrive
 
         static readonly Uri _organizationsUrl = new Uri("organizations", UriKind.Relative);
 
+        static readonly Uri _organizationRelationshipsUrl = new Uri("organizationRelationships", UriKind.Relative);
+
         static readonly Uri _organizationFieldsUrl = new Uri("organizationFields", UriKind.Relative);
 
         static readonly Uri _personsUrl = new Uri("persons", UriKind.Relative);
@@ -277,6 +279,25 @@ namespace Pipedrive
         public static Uri Organizations()
         {
             return _organizationsUrl;
+        }
+
+        /// <summary>
+        /// Returns the <see cref="Uri"/> that returns all of the organization Relationships in response to a GET request.
+        /// </summary>
+        /// <returns></returns>
+        public static Uri OrganizationRelationships()
+        {
+            return _organizationRelationshipsUrl;
+        }
+
+
+        /// <summary>
+        /// Returns the <see cref="Uri"/> for the specified organization.
+        /// </summary>
+        /// <param name="id">The id of the organizationRelationship</param>
+        public static Uri OrganizationRelationship(long id)
+        {
+            return new Uri($"organizationRelationships/{id}", UriKind.Relative);
         }
 
         /// <summary>

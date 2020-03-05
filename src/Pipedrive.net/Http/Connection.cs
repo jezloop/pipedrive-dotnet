@@ -237,7 +237,8 @@ namespace Pipedrive
             {
                 Method = method,
                 BaseAddress = baseAddress ?? BaseAddress,
-                Endpoint = uri
+                Endpoint = uri,
+                
             };
 
             return SendDataInternal<T>(body, accepts, contentType, cancellationToken, request);

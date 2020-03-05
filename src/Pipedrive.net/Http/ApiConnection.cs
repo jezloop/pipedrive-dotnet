@@ -432,7 +432,7 @@ namespace Pipedrive
             Ensure.ArgumentNotNull(uri, nameof(uri));
 
             var connection = Connection;
-
+            
             var response = await connection.Get<JsonResponse<List<TU>>>(uri, parameters, accepts).ConfigureAwait(false);
             return new ReadOnlyPagedCollection<TU>(
                 response,

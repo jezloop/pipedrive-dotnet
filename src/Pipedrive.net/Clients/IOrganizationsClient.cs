@@ -28,4 +28,21 @@ namespace Pipedrive
 
         Task<IReadOnlyList<Person>> GetPersons(long organizationId, OrganizationFilters filters);
     }
+
+
+    /// <summary>
+    /// A client for Pipedrive's Organization API.
+    /// </summary>
+    /// <remarks>
+    /// See the <a href="https://developers.pipedrive.com/docs/api/v1/#!/Organizations">Organization API documentation</a> for more information.
+    public interface IOrganizationRelationshipsClient
+    {
+        Task<IReadOnlyList<OrganizationRelationship>> GetAll(OrganizationRelationshipFilters filters);
+
+        Task<OrganizationRelationship> Get(long id);
+
+        Task<OrganizationRelationship> Create(OrganizationRelationshipCreate data);
+
+        Task Delete(long id);
+    }
 }

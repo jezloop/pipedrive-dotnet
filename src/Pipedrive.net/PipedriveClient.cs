@@ -61,6 +61,7 @@ namespace Pipedrive
             OAuth = new OAuthClient(connection);
             Organization = new OrganizationsClient(apiConnection);
             OrganizationField = new OrganizationFieldsClient(apiConnection);
+            OrganizationRelationship = new OrganizationRelationshipsClient(apiConnection);
             Person = new PersonsClient(apiConnection);
             PersonField = new PersonFieldsClient(apiConnection);
             Pipeline = new PipelinesClient(apiConnection);
@@ -215,6 +216,14 @@ namespace Pipedrive
         /// Refer to the API documentation for more information: https://developers.pipedrive.com/docs/api/v1/#!/OrganizationFields
         /// </remarks>
         public IOrganizationFieldsClient OrganizationField { get; private set; }
+
+        /// <summary>
+        /// Access Pipedrive's Organization Relationship API.
+        /// </summary>
+        /// <remarks>
+        /// Refer to the API documentation for more information: https://developers.pipedrive.com/docs/api/v1/#!/OrganizationRelationships
+        /// </remarks>
+        public IOrganizationRelationshipsClient OrganizationRelationship { get; private set; }
 
         /// <summary>
         /// Access Pipedrive's Person API.

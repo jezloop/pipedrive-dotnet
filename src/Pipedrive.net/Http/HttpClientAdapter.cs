@@ -29,8 +29,14 @@ namespace Pipedrive.Internal
             Ensure.ArgumentNotNull(getHandler, nameof(getHandler));
 
             ServicePointManager.SecurityProtocol |= SecurityProtocolType.Tls12;
+            HttpClientHandler httpClientHandler = new HttpClientHandler()
+            {
+                Proxy = new WebProxy(string.Format("{0}:{1}", "localhost", 8888), false),
+                PreAuthenticate = true,
+                UseDefaultCredentials = true,
+            };
 
-            _http = new HttpClient(new RedirectHandler { InnerHandler = getHandler() });
+            _http = new HttpClient(httpClientHandler);
         }
 
         /// <summary>
